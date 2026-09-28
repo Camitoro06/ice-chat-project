@@ -1,0 +1,16 @@
+plugins {
+    id 'application'
+}
+
+dependencies {
+    implementation project(':common')
+}
+
+application {
+    mainClass = 'chat.client.ClientMain'
+}
+
+// Obligatorio para que la tarea Gradle reciba entrada interactiva del teclado.
+run {
+    standardInput = System.in
+}
