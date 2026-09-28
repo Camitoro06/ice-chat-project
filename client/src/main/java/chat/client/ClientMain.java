@@ -67,7 +67,8 @@ public class ClientMain {
                         Thread.sleep(500);
                     } catch (Exception e) {
                         if (running) {
-                            System.err.println("\n[AVISO] Se perdió la comunicación con el servidor Ice.");
+                            System.err.println("\n[AVISO] Se perdió la comunicación con el servidor Ice ("
+                                    + e.getClass().getSimpleName() + "): " + e.getMessage());
                             running = false;
                         }
                         break;
@@ -104,7 +105,8 @@ public class ClientMain {
                     } catch (ChatException ce) {
                         System.err.println("[ERROR ENVÍO] " + ce.reason);
                     } catch (Exception e) {
-                        System.err.println("[ERROR RED] Comunicación fallida: " + e.getMessage());
+                        System.err.println("[ERROR RED] " + e.getClass().getSimpleName()
+                                + ": " + e.getMessage());
                         break;
                     }
                 }
